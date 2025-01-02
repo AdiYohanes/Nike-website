@@ -49,7 +49,7 @@ const Hero = () => {
               <a
                 href="#"
                 key={index}
-                className="hero-image group relative flex h-[700px] sm:h-[800px] lg:h-[1000px] items-end overflow-hidden rounded-lg bg-gray-100 shadow-xl w-full"
+                className="hero-image group relative flex h-[400px] sm:h-[600px] lg:h-[800px] xl:h-[1000px] items-end overflow-hidden rounded-lg bg-gray-100 shadow-xl w-full"
               >
                 <img
                   src={image.src}
@@ -64,7 +64,7 @@ const Hero = () => {
 
           {/* Centered div with red border */}
           <div className="absolute flex items-center justify-center w-auto h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <span className="text-white text-[300px] font-extrabold leading-tight tracking-wider transform-gpu text-shadow nike-text">
+            <span className="text-white text-[150px] md:text-[300px] font-extrabold leading-tight tracking-wider transform-gpu text-shadow nike-text">
               NIKE
             </span>
           </div>

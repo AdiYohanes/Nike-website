@@ -1,11 +1,12 @@
 import gsap from "gsap";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const jordanMenu = ["Find a Store", "Help", "Join Us", "Sign In"];
   const nikeMenu = ["New & Featured", "Men", "Women", "Kids", "Sale", "SNKRS"];
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -64,7 +65,7 @@ const Navbar = () => {
           <div id="jordan-logo" className="w-5">
             <img src="/assets/jordan.svg" alt="Jordan Logo" />
           </div>
-          <div className="flex">
+          <div className="hidden md:flex">
             <ul className="flex space-x-2">
               {jordanMenu.map((item, index) => (
                 <li key={item} className="text-sm font-semibold tracking-wide">
@@ -81,18 +82,40 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-gray-600 focus:outline-none absolute right-11 top-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? "✖" : "☰"}
+          </button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="bg-gray-100 md:hidden">
+          <ul className="flex flex-col space-y-2 pl-8 pr-8 pb-2">
+            {jordanMenu.map((item) => (
+              <li key={item} className="text-sm font-semibold tracking-wide">
+                <a href="#" className="jordan-menu-item">
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* Navbar Nike */}
-      <div className="flex items-center bg-white px-10 py-3">
+      <div className="justify-between flex items-center bg-white px-10 py-3">
         {/* Logo */}
         <div id="nike-logo" className="w-14">
           <img src="/assets/nike.svg" alt="Nike Logo" />
         </div>
 
         {/* Menu */}
-        <div className="flex-1 flex justify-center">
+        <div className="hidden lg:flex flex-1 justify-center">
           <ul className="flex space-x-8">
             {nikeMenu.map((item) => (
               <li
@@ -103,6 +126,9 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="md:hidden">
+          <span className="uppercase font-semibold text-2xl">nike</span>
         </div>
 
         {/* Search, Like, and Cart */}
@@ -128,21 +154,23 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search"
-              className="p-2 border rounded-full"
+              className="p-2 border rounded-full hidden md:block"
             />
           </div>
-          <img
-            className="w-6 h-6 cursor-pointer"
-            src="/assets/like.svg"
-            alt="Like"
-            id="like"
-          />
-          <img
-            className="w-6 h-6 cursor-pointer"
-            src="/assets/cart.svg"
-            alt="Cart"
-            id="cart"
-          />
+          <div className="hidden md:flex items-center gap-6 ">
+            <img
+              className="w-6 h-6 cursor-pointer"
+              src="/assets/like.svg"
+              alt="Like"
+              id="like"
+            />
+            <img
+              className="w-6 h-6 cursor-pointer"
+              src="/assets/cart.svg"
+              alt="Cart"
+              id="cart"
+            />
+          </div>
         </div>
       </div>
     </div>
