@@ -2,7 +2,7 @@
 
 Welcome to the **Nike Website Clone** – a modern and responsive web application built with **Vite**, **React**, and powered by **GSAP** animations. ✨ Experience smooth scrolling effects, dynamic visuals, and a clean UI inspired by the Nike brand.
 
-![Nike Clone Preview](https://via.placeholder.com/1200x600?text=Nike+Website+Clone+Preview)
+![Nike Clone Preview]([https://via.placeholder.com/1200x600?text=Nike+Website+Clone+Preview](https://nike-website-ruby-ten.vercel.app/))
 
 ---
 
